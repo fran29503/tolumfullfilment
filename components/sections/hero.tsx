@@ -32,7 +32,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
       {/* Shader background */}
       {mounted && <ShaderAnimation />}
 
@@ -94,7 +94,7 @@ export function Hero() {
                 <motion.span
                   className="inline-block"
                   style={{
-                    fontSize: "clamp(3.5rem, 9vw, 8rem)",
+                    fontSize: "clamp(2.5rem, 5.5vw, 4.8rem)",
                     color: i === 2 ? "#22c55e" : "#ffffff",
                   }}
                   initial={{ y: "110%", opacity: 0, filter: "blur(12px)" }}

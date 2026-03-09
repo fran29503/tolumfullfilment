@@ -56,9 +56,10 @@ export function MagneticButton({
         : "shadow-[0_0_0px_rgba(34,197,94,0)]"
     ),
     secondary: cn(
-      "border border-white/20 text-white px-8 py-4 text-sm bg-transparent",
-      "hover:border-[#22c55e] hover:text-[#22c55e]",
-      "after:absolute after:inset-0 after:rounded-full after:bg-[#22c55e]/5 after:scale-0 hover:after:scale-100 after:transition-transform after:duration-300"
+      "border border-white/20 text-white/80 px-8 py-4 text-sm bg-transparent",
+      "hover:border-[#22c55e]/60 hover:text-white",
+      "after:absolute after:inset-0 after:rounded-full after:bg-[#22c55e]/6 after:scale-0 hover:after:scale-100 after:transition-transform after:duration-300",
+      isHovered ? "shadow-[0_0_20px_rgba(34,197,94,0.15)]" : ""
     ),
     ghost: cn(
       "text-white/70 px-4 py-2 text-sm hover:text-white",
@@ -75,6 +76,7 @@ export function MagneticButton({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
+      whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.96 }}
     >
       {children}
