@@ -35,7 +35,7 @@ function useHoverSliderContext() {
 export const HoverSlider = React.forwardRef<
   HTMLElement,
   React.HTMLAttributes<HTMLElement>
->(({ children, className }) => {
+>(({ children, className }, _ref) => {
   const [activeSlide, setActiveSlide] = React.useState<number>(0);
   const changeSlide = React.useCallback((index: number) => setActiveSlide(index), []);
 

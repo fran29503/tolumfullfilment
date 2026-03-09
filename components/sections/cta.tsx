@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import { WordAnimation, FadeUp } from "@/components/ui/word-animation";
 import { ArrowRight, Mail, Phone } from "lucide-react";
@@ -19,21 +19,28 @@ function Particle({ x, y, delay }: { x: string; y: string; delay: number }) {
   );
 }
 
-const PARTICLES = Array.from({ length: 20 }, () => ({
-  x: `${Math.random() * 100}%`,
-  y: `${Math.random() * 100}%`,
-  delay: Math.random() * 4,
-}));
+type Particle = { x: string; y: string; delay: number };
 
 export function CTA() {
   const [formState, setFormState] = useState({ name: "", email: "", brand: "" });
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, () => ({
+        x: `${Math.random() * 100}%`,
+        y: `${Math.random() * 100}%`,
+        delay: Math.random() * 4,
+      }))
+    );
+  }, []);
 
   return (
     <section id="contact" className="relative py-32 overflow-hidden bg-black">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#22c55e]/20 to-transparent" />
 
       {/* Particles */}
-      {PARTICLES.map((p, i) => (
+      {particles.map((p, i) => (
         <Particle key={i} {...p} />
       ))}
 
