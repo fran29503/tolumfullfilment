@@ -29,7 +29,7 @@ export function WordAnimation({
 
   return (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    <Component ref={ref as any} className={cn("inline-flex flex-wrap gap-x-[0.25em]", className)} style={style}>
+    <Component ref={ref as any} className={cn("flex flex-wrap gap-x-[0.25em]", className)} style={style}>
       {words.map((word, i) => (
         <span key={i} className="overflow-hidden inline-block">
           <motion.span

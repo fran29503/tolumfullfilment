@@ -41,7 +41,7 @@ export function Coverage() {
 
             <WordAnimation
               text="From Vancouver to Halifax. And everywhere beyond."
-              className="font-montserrat font-black text-white leading-[1.05] tracking-tight block"
+              className="font-montserrat font-black text-white leading-[1.05] tracking-tight"
               style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" } as React.CSSProperties}
               staggerDelay={60}
               as="h2"

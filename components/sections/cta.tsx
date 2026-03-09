@@ -52,7 +52,7 @@ export function CTA() {
         <div className="text-center mb-16">
           <WordAnimation
             text="Ready to Scale Your Fulfillment?"
-            className="font-montserrat font-black text-white leading-[1.0] tracking-tight justify-center block"
+            className="font-montserrat font-black text-white leading-[1.0] tracking-tight justify-center"
             style={{ fontSize: "clamp(2.5rem, 6vw, 5.5rem)" } as React.CSSProperties}
             staggerDelay={60}
             as="h2"

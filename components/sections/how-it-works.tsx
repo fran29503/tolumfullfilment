@@ -64,7 +64,7 @@ export function HowItWorks() {
           <div className="max-w-2xl">
             <WordAnimation
               text="Simple by design. Powerful by execution."
-              className="font-montserrat font-black text-white leading-[1.05] tracking-tight block"
+              className="font-montserrat font-black text-white leading-[1.05] tracking-tight"
               style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" } as React.CSSProperties}
               staggerDelay={70}
               as="h2"

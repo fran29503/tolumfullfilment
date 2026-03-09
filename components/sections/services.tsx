@@ -82,7 +82,7 @@ export function Services() {
 
           <WordAnimation
             text="Everything your brand needs to ship at scale."
-            className="font-montserrat font-black text-white leading-[1.05] tracking-tight block"
+            className="font-montserrat font-black text-white leading-[1.05] tracking-tight"
             style={{ fontSize: "clamp(2rem, 5vw, 4rem)" } as React.CSSProperties}
             staggerDelay={80}
             as="h2"
@@ -156,19 +156,16 @@ export function Services() {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
             {/* Floating tag */}
-            {SERVICES.map((service) => (
-              <motion.div
-                key={service.id}
-                className="absolute bottom-6 left-6 bg-black/80 border border-white/10 backdrop-blur-sm rounded-lg px-4 py-2"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-xs font-inter font-medium text-[#22c55e] tracking-wider uppercase">
-                  {service.tag}
-                </span>
-              </motion.div>
-            ))}
+            <motion.div
+              className="absolute bottom-6 left-6 bg-black/80 border border-white/10 backdrop-blur-sm rounded-lg px-4 py-2"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-xs font-inter font-medium text-[#22c55e] tracking-wider uppercase">
+                Fulfillment
+              </span>
+            </motion.div>
 
             {/* Decorative glow */}
             <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#22c55e]/10 via-transparent to-transparent -z-10 blur-xl" />

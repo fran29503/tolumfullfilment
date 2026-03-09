@@ -85,17 +85,19 @@ export function Stats() {
 
               {/* Number */}
               <div className="relative">
-                <div
-                  className="font-montserrat font-black leading-none text-white tabular-nums"
-                  style={{ fontSize: "clamp(3rem, 5vw, 4.5rem)" }}
-                >
-                  <AnimatedCounter
-                    end={stat.value}
-                    suffix={stat.suffix}
-                    decimals={stat.decimals}
-                  />
+                <div>
+                  <span
+                    className="font-montserrat font-black leading-none text-white tabular-nums block"
+                    style={{ fontSize: "clamp(2.5rem, 4vw, 3.5rem)" }}
+                  >
+                    <AnimatedCounter
+                      end={stat.value}
+                      suffix={stat.suffix}
+                      decimals={stat.decimals}
+                    />
+                  </span>
                   {stat.unit && (
-                    <span className="font-inter font-light text-white/30 text-xl ml-1">
+                    <span className="font-inter font-light text-white/30 text-sm tracking-wider uppercase mt-1 block">
                       {stat.unit}
                     </span>
                   )}
