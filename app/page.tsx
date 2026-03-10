@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Hero } from "@/components/sections/hero";
-import { ParallaxBg } from "@/components/ui/parallax-bg";
 import { MarqueeStrip } from "@/components/sections/marquee-strip";
 import { Services } from "@/components/sections/services";
 import { Stats } from "@/components/sections/stats";
@@ -10,22 +9,25 @@ import { Testimonials } from "@/components/sections/testimonials";
 import { Coverage } from "@/components/sections/coverage";
 import { CTA } from "@/components/sections/cta";
 import { Footer } from "@/components/sections/footer";
+import { SectionParticles } from "@/components/ui/section-particles";
 
 export default function Home() {
   return (
     <main className="bg-black relative">
-      <ParallaxBg />
       <Navbar />
       <Hero />
-      <MarqueeStrip />
-      <Services />
-      <Stats />
-      <HowItWorks />
-      <WhyTolum />
-      <Testimonials />
-      <Coverage />
-      <CTA />
-      <Footer />
+      <div className="relative z-0">
+        <SectionParticles />
+        <MarqueeStrip />
+        <Services />
+        <Stats />
+        <HowItWorks />
+        <WhyTolum />
+        <Testimonials />
+        <Coverage />
+        <CTA />
+        <Footer />
+      </div>
     </main>
   );
 }
