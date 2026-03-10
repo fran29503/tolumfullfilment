@@ -32,7 +32,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-20 pb-20 overflow-hidden">
       {/* Shader background */}
       {mounted && <ShaderAnimation />}
 
@@ -75,7 +75,7 @@ export function Hero() {
 
         {/* Badge */}
         <motion.div
-          className="inline-flex items-center gap-2 rounded-full border border-[#22c55e]/30 bg-[#22c55e]/5 px-4 py-2 mb-10"
+          className="inline-flex items-center gap-2 rounded-full border border-[#22c55e]/30 bg-[#22c55e]/5 px-4 py-2 mb-8"
           initial={{ opacity: 0, y: 20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
@@ -87,14 +87,16 @@ export function Hero() {
         </motion.div>
 
         {/* Headline */}
-        <h1 className="font-montserrat font-black leading-[0.9] tracking-tight mb-6">
-          <div className="flex flex-wrap justify-center gap-x-[0.2em]">
+        <h1
+          className="font-montserrat font-black tracking-tight mb-5"
+          style={{ fontSize: "clamp(2.5rem, 5.5vw, 4.8rem)", lineHeight: 1.08 }}
+        >
+          <div className="flex flex-wrap justify-center gap-x-[0.28em] gap-y-[0.06em]">
             {HEADLINE_WORDS.map((word, i) => (
               <span key={i} className="overflow-hidden inline-block">
                 <motion.span
                   className="inline-block"
                   style={{
-                    fontSize: "clamp(2.5rem, 5.5vw, 4.8rem)",
                     color: i === 2 ? "#22c55e" : "#ffffff",
                   }}
                   initial={{ y: "110%", opacity: 0, filter: "blur(12px)" }}
@@ -114,7 +116,7 @@ export function Hero() {
 
         {/* Subheadline */}
         <motion.p
-          className="font-inter font-light text-white/55 max-w-2xl leading-relaxed mb-12"
+          className="font-inter font-light text-white/55 max-w-2xl leading-relaxed mb-8"
           style={{ fontSize: "clamp(1rem, 2vw, 1.2rem)" }}
           initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -127,7 +129,7 @@ export function Hero() {
 
         {/* CTAs */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-center gap-4 mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.7 }}
@@ -168,9 +170,12 @@ export function Hero() {
         </motion.div>
       </div>
 
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-20" />
+
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.8 }}
@@ -183,9 +188,6 @@ export function Hero() {
           <ChevronDown size={18} className="text-white/30" />
         </motion.div>
       </motion.div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent z-20" />
     </section>
   );
 }
