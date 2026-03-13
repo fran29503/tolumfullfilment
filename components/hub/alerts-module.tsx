@@ -20,9 +20,9 @@ export function AlertsModule() {
 
   // Calculate statistics
   const stats = useCallback(() => {
-    const critical = alerts.filter((a) => a.type === "critical").length;
-    const warning = alerts.filter((a) => a.type === "warning").length;
-    const unread = alerts.filter((a) => !a.acknowledged).length;
+    const critical = alerts.filter((a) => a.severity === "critical").length;
+    const warning = alerts.filter((a) => a.severity === "warning").length;
+    const unread = alerts.length;
 
     return { critical, warning, unread };
   }, [alerts]);

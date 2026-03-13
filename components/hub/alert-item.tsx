@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { Alert } from "@/lib/data/mock-alerts";
-import { AlertCircle, CheckCircle, Info, AlertTriangle } from "lucide-react";
+import { AlertCircle, Info, AlertTriangle } from "lucide-react";
 
 interface AlertItemProps {
   alert: Alert;
@@ -10,13 +10,11 @@ interface AlertItemProps {
 
 export function AlertItem({ alert }: AlertItemProps) {
   const getIcon = () => {
-    switch (alert.type) {
+    switch (alert.severity) {
       case "critical":
         return <AlertCircle size={16} />;
       case "warning":
         return <AlertTriangle size={16} />;
-      case "success":
-        return <CheckCircle size={16} />;
       case "info":
         return <Info size={16} />;
       default:
@@ -25,7 +23,7 @@ export function AlertItem({ alert }: AlertItemProps) {
   };
 
   const getColors = () => {
-    switch (alert.type) {
+    switch (alert.severity) {
       case "critical":
         return {
           bg: "bg-red-500/10",
@@ -39,13 +37,6 @@ export function AlertItem({ alert }: AlertItemProps) {
           border: "border-yellow-500/30",
           icon: "text-yellow-400",
           text: "text-yellow-400",
-        };
-      case "success":
-        return {
-          bg: "bg-green-primary/10",
-          border: "border-green-primary/30",
-          icon: "text-green-bright",
-          text: "text-green-bright",
         };
       case "info":
         return {
@@ -92,32 +83,19 @@ export function AlertItem({ alert }: AlertItemProps) {
       <div className="flex-1 min-w-0">
         <div className="flex items-start justify-between gap-2">
           <p className="text-xs font-semibold text-white truncate">
-            {alert.title}
+            {alert.truck ? `[${alert.truck}]` : "System"}
           </p>
           <p className="text-xs text-white/40 flex-shrink-0">
             {formatTime(alert.timestamp)}
           </p>
         </div>
         <p className="text-xs text-white/60 mt-1 line-clamp-2">
-          {alert.description}
+          {alert.message}
         </p>
-
-        {/* Action button if actionable */}
-        {alert.actionable && (
-          <motion.button
-            className="mt-2 text-xs px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-white/70 hover:text-white border border-white/10 transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Take Action
-          </motion.button>
-        )}
       </div>
 
       {/* Unread indicator */}
-      {!alert.acknowledged && (
-        <div className="w-2 h-2 rounded-full bg-current flex-shrink-0 mt-1" />
-      )}
+      <div className="w-2 h-2 rounded-full bg-current flex-shrink-0 mt-1" />
     </motion.div>
   );
 }
