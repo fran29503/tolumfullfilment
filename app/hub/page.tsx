@@ -1,0 +1,87 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "motion/react";
+import { HubHeader } from "@/components/hub/hub-header";
+
+// Placeholder components (will be built in subsequent tasks)
+const MapModule = () => (
+  <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
+    <p className="text-white/50">Map Module (Task 2)</p>
+  </div>
+);
+
+const SalesModule = () => (
+  <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
+    <p className="text-white/50">Sales Module (Task 3)</p>
+  </div>
+);
+
+const ChatModule = () => (
+  <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
+    <p className="text-white/50">Chat Module (Task 4)</p>
+  </div>
+);
+
+const AlertsModule = () => (
+  <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
+    <p className="text-white/50">Alerts Module (Task 5)</p>
+  </div>
+);
+
+export default function HubPage() {
+  return (
+    <main className="bg-black min-h-screen overflow-x-hidden">
+      <HubHeader />
+
+      <div className="relative px-6 py-8 max-w-[1920px] mx-auto">
+        {/* Decorative grid background */}
+        <div className="fixed inset-0 grid-bg opacity-20 pointer-events-none z-0" />
+
+        {/* 4-Module Grid */}
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Top-left: Live Operations Map */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+          >
+            <MapModule />
+          </motion.div>
+
+          {/* Top-right: AI Sales Panel */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            <SalesModule />
+          </motion.div>
+
+          {/* Bottom-left: AI Chat Assistant */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <ChatModule />
+          </motion.div>
+
+          {/* Bottom-right: Smart Alerts */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            <AlertsModule />
+          </motion.div>
+        </motion.div>
+      </div>
+    </main>
+  );
+}
