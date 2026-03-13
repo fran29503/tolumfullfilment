@@ -4,12 +4,7 @@ import { motion } from "motion/react";
 import { HubHeader } from "@/components/hub/hub-header";
 import { MapModule } from "@/components/hub/map-module";
 import { SalesModule } from "@/components/hub/sales-module";
-
-const ChatModule = () => (
-  <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
-    <p className="text-white/50">Chat Module (Task 4)</p>
-  </div>
-);
+import { ChatModule } from "@/components/hub/chat-module";
 
 const AlertsModule = () => (
   <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
