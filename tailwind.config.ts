@@ -24,11 +24,15 @@ const config: Config = {
       animation: {
         "marquee": "marquee 30s linear infinite",
         "marquee-reverse": "marquee-reverse 30s linear infinite",
-        "float": "float 6s ease-in-out infinite",
+        "float": "float 3s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "word-appear": "word-appear 0.8s ease-out forwards",
         "underline-grow": "underline-grow 1.5s ease-out forwards",
         "count-up": "count-up 2s ease-out forwards",
+        "slide-in-left": "slide-in-left 0.45s ease-out forwards",
+        "slide-in-right": "slide-in-right 0.45s ease-out forwards",
+        "fade-in-up": "fade-in-up 0.45s ease-out forwards",
+        "shimmer": "shimmer 2s ease-in-out infinite",
       },
       keyframes: {
         marquee: {
@@ -44,8 +48,16 @@ const config: Config = {
           "50%": { transform: "translateY(-10px)" },
         },
         "pulse-glow": {
-          "0%, 100%": { opacity: "0.4", transform: "scale(1)" },
-          "50%": { opacity: "1", transform: "scale(1.05)" },
+          "0%, 100%": {
+            opacity: "0.4",
+            transform: "scale(1)",
+            boxShadow: "0 0 8px rgba(34, 197, 94, 0.2)"
+          },
+          "50%": {
+            opacity: "1",
+            transform: "scale(1.05)",
+            boxShadow: "0 0 16px rgba(34, 197, 94, 0.4)"
+          },
         },
         "word-appear": {
           "0%": { opacity: "0", transform: "translateY(30px) scale(0.8)", filter: "blur(10px)" },
@@ -55,6 +67,44 @@ const config: Config = {
         "underline-grow": {
           "0%": { width: "0%" },
           "100%": { width: "100%" },
+        },
+        "slide-in-left": {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(-250px)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)"
+          },
+        },
+        "slide-in-right": {
+          "0%": {
+            opacity: "0",
+            transform: "translateX(30px)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateX(0)"
+          },
+        },
+        "fade-in-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)"
+          },
+        },
+        "shimmer": {
+          "0%, 100%": {
+            opacity: "0.5"
+          },
+          "50%": {
+            opacity: "1"
+          },
         },
       },
       backgroundImage: {

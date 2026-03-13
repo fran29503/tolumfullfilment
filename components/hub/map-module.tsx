@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Truck, AlertTriangle } from "lucide-react";
 import { TruckRoute, MOCK_ROUTES, updateMockRoutes } from "@/lib/data/mock-routes";
 import { MapCanvas } from "./map-canvas";
+import { TruckInfoPanel } from "./truck-info-panel";
 
 export function MapModule() {
   const [routes, setRoutes] = useState<TruckRoute[]>(MOCK_ROUTES);
@@ -31,7 +32,7 @@ export function MapModule() {
 
   return (
     <motion.div
-      className="w-full h-96 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm overflow-hidden flex flex-col relative group"
+      className="w-full rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm flex flex-col relative group"
       whileHover={{ borderColor: "rgba(34, 197, 94, 0.3)" }}
       transition={{ duration: 0.3 }}
     >
@@ -51,13 +52,23 @@ export function MapModule() {
       </div>
 
       {/* Map container */}
-      <div className="flex-1 relative bg-gradient-to-br from-near-black to-dark-surface p-3">
+      <div className="h-64 relative bg-gradient-to-br from-near-black to-dark-surface p-3 overflow-hidden">
         <MapCanvas routes={routes} />
       </div>
 
+      {/* Truck Info Panel */}
+      <motion.div
+        className="px-3 pt-3"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
+      >
+        <TruckInfoPanel />
+      </motion.div>
+
       {/* Stats bar */}
       <motion.div
-        className="px-4 py-3 border-t border-white/5 bg-black/20 grid grid-cols-3 gap-3"
+        className="px-4 py-3 border-t border-white/5 bg-black/20 grid grid-cols-3 gap-3 mt-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.1 }}
