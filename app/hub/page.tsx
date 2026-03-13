@@ -5,12 +5,7 @@ import { HubHeader } from "@/components/hub/hub-header";
 import { MapModule } from "@/components/hub/map-module";
 import { SalesModule } from "@/components/hub/sales-module";
 import { ChatModule } from "@/components/hub/chat-module";
-
-const AlertsModule = () => (
-  <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
-    <p className="text-white/50">Alerts Module (Task 5)</p>
-  </div>
-);
+import { AlertsModule } from "@/components/hub/alerts-module";
 
 export default function HubPage() {
   return (
