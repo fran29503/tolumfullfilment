@@ -1,15 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "motion/react";
 import { HubHeader } from "@/components/hub/hub-header";
-
-// Placeholder components (will be built in subsequent tasks)
-const MapModule = () => (
-  <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
-    <p className="text-white/50">Map Module (Task 2)</p>
-  </div>
-);
+import { MapModule } from "@/components/hub/map-module";
 
 const SalesModule = () => (
   <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
