@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { HubHeader } from "@/components/hub/hub-header";
+import { ModuleContainer } from "@/components/hub/module-container";
 import { MapModule } from "@/components/hub/map-module";
 import { SalesModule } from "@/components/hub/sales-module";
 import { ChatModule } from "@/components/hub/chat-module";
@@ -24,40 +25,24 @@ export default function HubPage() {
           transition={{ duration: 0.6 }}
         >
           {/* Top-left: Live Operations Map */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.1 }}
-          >
+          <ModuleContainer delay={0.1}>
             <MapModule />
-          </motion.div>
+          </ModuleContainer>
 
           {/* Top-right: AI Sales Panel */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+          <ModuleContainer delay={0.2}>
             <SalesModule />
-          </motion.div>
+          </ModuleContainer>
 
           {/* Bottom-left: AI Chat Assistant */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
+          <ModuleContainer delay={0.3}>
             <ChatModule />
-          </motion.div>
+          </ModuleContainer>
 
           {/* Bottom-right: Smart Alerts */}
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
+          <ModuleContainer delay={0.4}>
             <AlertsModule />
-          </motion.div>
+          </ModuleContainer>
         </motion.div>
       </div>
     </main>
