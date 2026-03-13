@@ -71,47 +71,49 @@ export function HeroMapSection() {
   const selectedTruck = truckStats.find((t) => t.id === selectedTruckId);
 
   return (
-    <motion.div
-      className="flex-1 min-h-0 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm overflow-hidden relative group"
-      whileHover={{ borderColor: "rgba(34, 197, 94, 0.3)" }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.1 }}
-    >
-      {/* Map Canvas */}
-      <div className="w-full h-full">
-        <MapCanvas routes={routes} />
-      </div>
-
-      {/* Truck Selector Tabs - Absolute positioned at bottom */}
+    <div className="flex-1 min-h-0 flex flex-col rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm overflow-hidden relative group">
+      {/* Map Container - Fixed 50% height */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 px-4 py-4 bg-gradient-to-t from-black via-black/90 to-transparent"
+        className="h-1/2 w-full border-b border-white/10 overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.15 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
       >
-        {/* Truck tabs */}
-        <div className="flex gap-2 mb-4">
-          {truckStats.map((truck) => (
-            <motion.button
-              key={truck.id}
-              onClick={() => setSelectedTruckId(truck.id)}
-              className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
-                selectedTruckId === truck.id
-                  ? "bg-green-primary text-black"
-                  : "bg-white/10 text-white/70 hover:bg-white/20"
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {truck.name}
-            </motion.button>
-          ))}
+        <MapCanvas routes={routes} />
+      </motion.div>
+
+      {/* Info Panels Container - Scrollable */}
+      <motion.div
+        className="flex-1 min-h-0 flex flex-col overflow-y-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {/* Truck Selector Tabs */}
+        <div className="px-4 py-4 bg-gradient-to-b from-black/60 to-black/40 backdrop-blur-sm sticky top-0 z-10">
+          <div className="flex gap-2 flex-wrap">
+            {truckStats.map((truck) => (
+              <motion.button
+                key={truck.id}
+                onClick={() => setSelectedTruckId(truck.id)}
+                className={`px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                  selectedTruckId === truck.id
+                    ? "bg-green-primary text-black"
+                    : "bg-white/10 text-white/70 hover:bg-white/20"
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {truck.name}
+              </motion.button>
+            ))}
+          </div>
         </div>
 
         {/* Truck info stats - 6 columns */}
         {selectedTruck && (
-          <div className="grid grid-cols-6 gap-3">
+          <div className="px-4 pb-4 space-y-4">
+            <div className="grid grid-cols-6 gap-3">
             {/* Status */}
             <div className="rounded-lg bg-white/5 border border-white/10 p-2">
               <p className="text-[9px] uppercase tracking-widest text-white/40 mb-1">
@@ -204,13 +206,14 @@ export function HeroMapSection() {
               <p className="text-sm font-semibold text-green-bright">
                 {routes.find((r) => r.truckId === selectedTruck.id)?.eta || "N/A"}
               </p>
+              </div>
             </div>
-          </div>
-        )}
+            </div>
+          )}
       </motion.div>
 
       {/* Live pulse indicator */}
       <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-green-primary animate-pulse" />
-    </motion.div>
+    </div>
   );
 }

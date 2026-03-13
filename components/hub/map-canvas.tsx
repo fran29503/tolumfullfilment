@@ -219,22 +219,72 @@ export function MapCanvas({ routes }: MapCanvasProps) {
         </g>
       ))}
 
-      {/* Legend */}
-      <g opacity="0.6">
-        <text x="2" y="5" fontSize="0.7" fill="#22c55e">
-          Live
-        </text>
-        <circle cx="1.2" cy="4.7" r="0.25" fill="#22c55e" />
+      {/* Labels for warehouse and destination */}
+      <text
+        x={warehousePos.x}
+        y={warehousePos.y + 6}
+        fontSize="1.2"
+        fill="#22c55e"
+        fontWeight="bold"
+        textAnchor="middle"
+        opacity="0.9"
+      >
+        Warehouse
+      </text>
 
-        <text x="2" y="7" fontSize="0.7" fill="#ef4444">
-          Delayed
-        </text>
-        <circle cx="1.2" cy="6.7" r="0.25" fill="#ef4444" />
+      <text
+        x={destinationPos.x}
+        y={destinationPos.y - 3}
+        fontSize="1.2"
+        fill="#4ade80"
+        fontWeight="bold"
+        textAnchor="middle"
+        opacity="0.9"
+      >
+        Destination
+      </text>
 
-        <text x="2" y="9" fontSize="0.7" fill="#10b981">
-          Delivered
+      {/* Enhanced Legend at bottom */}
+      <g>
+        {/* Legend background */}
+        <rect x="5" y="87" width="90" height="11" fill="rgba(0,0,0,0.4)" rx="1" />
+
+        {/* Legend title */}
+        <text x="7" y="92" fontSize="1" fill="#ffffff" fontWeight="bold" opacity="0.8">
+          FLEET STATUS
         </text>
-        <circle cx="1.2" cy="8.7" r="0.25" fill="#10b981" />
+
+        {/* Truck Status Legend */}
+        <g>
+          {/* Live */}
+          <circle cx="30" cy="91" r="0.4" fill="#22c55e" />
+          <text x="31.5" y="91.5" fontSize="0.8" fill="#ffffff" opacity="0.8">
+            In Transit
+          </text>
+
+          {/* Delayed */}
+          <circle cx="48" cy="91" r="0.4" fill="#ef4444" />
+          <text x="49.5" y="91.5" fontSize="0.8" fill="#ffffff" opacity="0.8">
+            Delayed
+          </text>
+
+          {/* Delivered */}
+          <circle cx="62" cy="91" r="0.4" fill="#10b981" />
+          <text x="63.5" y="91.5" fontSize="0.8" fill="#ffffff" opacity="0.8">
+            Delivered
+          </text>
+
+          {/* Loading */}
+          <circle cx="76" cy="91" r="0.4" fill="#f59e0b" />
+          <text x="77.5" y="91.5" fontSize="0.8" fill="#ffffff" opacity="0.8">
+            Loading
+          </text>
+        </g>
+
+        {/* Route description */}
+        <text x="7" y="97" fontSize="0.7" fill="#ffffff" opacity="0.6">
+          Solid line = Route Progress | Dashed line = Route to Destination
+        </text>
       </g>
     </svg>
   );
