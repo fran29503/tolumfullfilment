@@ -3,12 +3,7 @@
 import { motion } from "motion/react";
 import { HubHeader } from "@/components/hub/hub-header";
 import { MapModule } from "@/components/hub/map-module";
-
-const SalesModule = () => (
-  <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
-    <p className="text-white/50">Sales Module (Task 3)</p>
-  </div>
-);
+import { SalesModule } from "@/components/hub/sales-module";
 
 const ChatModule = () => (
   <div className="w-full h-96 bg-gradient-to-br from-near-black to-dark-surface rounded-xl border border-white/10 flex items-center justify-center">
