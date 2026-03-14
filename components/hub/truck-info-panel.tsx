@@ -69,7 +69,7 @@ export function TruckInfoPanel() {
 
   return (
     <motion.div
-      className="w-full rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm overflow-hidden flex flex-col relative group"
+      className="h-full rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm overflow-hidden flex flex-col relative group"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: "easeOut" }}

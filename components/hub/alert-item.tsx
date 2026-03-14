@@ -85,7 +85,8 @@ export function AlertItem({ alert }: AlertItemProps) {
           <p className="text-xs font-semibold text-white truncate">
             {alert.truck ? `[${alert.truck}]` : "System"}
           </p>
-          <p className="text-xs text-white/40 flex-shrink-0">
+          {/* suppressHydrationWarning: time strings differ server/client ("5m ago" vs "6m ago") */}
+          <p className="text-xs text-white/40 flex-shrink-0" suppressHydrationWarning>
             {formatTime(alert.timestamp)}
           </p>
         </div>
